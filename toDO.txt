@@ -1,0 +1,25 @@
+Estrutura do projeto x
+Configurando rotas
+Estilos globais
+Criando Header
+Estilização da Home
+Estilização do Carrinho
+Configurando API
+Buscando produtos da API
+Configurando o Redux
+Adicionando ao carrinho
+Reactotron + Redux
+Listando no carrinho
+Produto duplicado
+Remover produto
+Refatorando as actions
+Alterando quantidade
+Calculando totais
+Exibindo quantidades
+Configurando Redux Saga
+Reactotron + Saga
+Separando actions
+Estoque na adição
+React Toastify
+Estoque na alteração
+Navegando no Saga
