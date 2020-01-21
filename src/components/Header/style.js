@@ -1,10 +1,4 @@
 import styled from 'styled-components/native';
-<<<<<<< HEAD
-
-export const Container = styled.View`
-  flex: 1;
-  padding: ;
-=======
 import logo from '../../assets/images/logo.png';
 
 export const Wrapper = styled.View`
@@ -51,5 +45,4 @@ export const ShoppingBasketAmount = styled.Text`
   font-weight: bold;
   font-size: 12px;
   padding: 1px;
->>>>>>> 8a17f3de1d0342fecaff33a193419bcf05f40893
 `;
