@@ -1,15 +1,29 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { View, Text, Button } from 'react-native';
-
-import logo from '../../assets/images/logo.svg';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import {
+  Container,
+  Wrapper,
+  Logo,
+  ShoppingBasketContainer,
+  ShoppingBasketAmount,
+} from './style';
 
 function Header({ navigation }) {
   return (
-    <View>
-      <Button title="HOME" onPress={() => navigation.navigate('Home')} />
+    <Wrapper>
+      <Container>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <Logo />
+        </TouchableOpacity>
 
-      <Button title="carrinho" onPress={() => navigation.navigate('Cart')} />
-    </View>
+        <ShoppingBasketContainer onPress={() => navigation.navigate('Cart')}>
+          <Icon name="basket" size={35} color="#FFF" />
+          <ShoppingBasketAmount>55</ShoppingBasketAmount>
+        </ShoppingBasketContainer>
+      </Container>
+    </Wrapper>
   );
 }
 
