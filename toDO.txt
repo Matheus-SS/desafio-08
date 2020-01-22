@@ -1,8 +1,8 @@
 Estrutura do projeto x
-Configurando rotas
-Estilos globais
-Criando Header
-Estilização da Home
+Configurando rotas x
+Estilos globais x
+Criando Header x
+Estilização da Home x
 Estilização do Carrinho
 Configurando API
 Buscando produtos da API

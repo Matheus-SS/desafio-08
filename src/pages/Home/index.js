@@ -1,11 +1,16 @@
 import React from 'react';
 import { View, Text, Image, FlatList, Button } from 'react-native';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
+  Body,
   ProductImage,
   ProductContainer,
   ProductName,
   ProductPrice,
+  ProductAddButton,
+  ProductAddButtonAmount,
+  ProductAddButtonAmountText,
+  ProductAddButtonText,
 } from './style';
 import tenis from '../../assets/images/tenis.jpg';
 
@@ -43,7 +48,7 @@ const product = [
 ];
 const Home = () => {
   return (
-    <View style={{ backgroundColor: '#000', flex: 1 }}>
+    <Body style={{ backgroundColor: '#000', flex: 1 }}>
       <View>
         <FlatList
           horizontal
@@ -55,18 +60,20 @@ const Home = () => {
               <ProductName>{item.name}</ProductName>
               <ProductPrice>R$ {item.price}</ProductPrice>
 
-              <View>
-                <View>
-                  <Text>C</Text>
-                  <Text>0</Text>
-                </View>
-                <Text>ADICIONAR</Text>
-              </View>
+              <ProductAddButton>
+                <ProductAddButtonAmount
+                  style={{ flexDirection: 'row', alignItems: 'center' }}
+                >
+                  <Icon name="add-shopping-cart" size={20} color="#fff" />
+                  <ProductAddButtonAmountText>33</ProductAddButtonAmountText>
+                </ProductAddButtonAmount>
+                <ProductAddButtonText>ADICIONAR</ProductAddButtonText>
+              </ProductAddButton>
             </ProductContainer>
           )}
         />
       </View>
-    </View>
+    </Body>
   );
 };
 
