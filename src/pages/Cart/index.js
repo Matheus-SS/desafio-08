@@ -1,50 +1,79 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import {
+  ProductContainer,
+  ProductInfo,
+  ProductInfoImage,
+  ProductInfoDetails,
+  ProductInfoDetailsName,
+  ProductInfoDetailsPrice,
+  ProcuctInfoDeleteIcon,
+  ProductAmount,
+  ProductAmountControl,
+  ProductAmountInput,
+  ProductAmountPrice,
+  ProductAmountPriceText,
+  ProductTotal,
+  ProductTotalText,
+  ProductTotalPrice,
+  ProductEndOrder,
+  ProductEndOrderText,
+} from './style';
 import tenis from '../../assets/images/tenis.jpg';
 
-const Cart = () => {
+function Cart() {
   return (
-    <View
-      style={{ backgroundColor: 'blue', flex: 1, justifyContent: 'center' }}
-    >
-      <View style={{ backgroundColor: 'red' }}>
-        <View style={{ flexDirection: 'row' }}>
-          <Image source={tenis} style={{ width: 100, height: 100 }} />
+    <View style={{ flex: 1 }}>
+      <ScrollView>
+        <ProductContainer>
           <View>
-            <Text>Tenis de Caminhada Leve Confortavel</Text>
-            <Text>189,90</Text>
+            <ProductInfo>
+              <ProductInfoImage source={tenis} />
+              <ProductInfoDetails>
+                <ProductInfoDetailsName>
+                  Tenis de Caminhada Leve Confortavel
+                </ProductInfoDetailsName>
+                <ProductInfoDetailsPrice>R$ 189,90</ProductInfoDetailsPrice>
+              </ProductInfoDetails>
+              <ProcuctInfoDeleteIcon>
+                <Icon name="delete-forever" size={30} color="#7159c1" />
+              </ProcuctInfoDeleteIcon>
+            </ProductInfo>
+
+            <ProductAmount>
+              <ProductAmountControl>
+                <TouchableOpacity>
+                  <Icon
+                    name="remove-circle-outline"
+                    size={20}
+                    color="#7159c1"
+                  />
+                </TouchableOpacity>
+                <ProductAmountInput value="33" />
+                <TouchableOpacity>
+                  <Icon name="add-circle-outline" size={20} color="#7159c1" />
+                </TouchableOpacity>
+              </ProductAmountControl>
+
+              <ProductAmountPrice>
+                <ProductAmountPriceText>R$ 199,90</ProductAmountPriceText>
+              </ProductAmountPrice>
+            </ProductAmount>
           </View>
-          <Icon name="delete-forever" size={30} color="#fff" />
-        </View>
 
-        <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity>
-            <Icon name="remove-circle-outline" size={20} color="#fff" />
-          </TouchableOpacity>
-          <TextInput
-            value="33"
-            editable={false}
-            style={{ backgroundColor: '#fff', color: '#000' }}
-          />
-          <TouchableOpacity>
-            <Icon name="add-circle-outline" size={20} color="#fff" />
-          </TouchableOpacity>
-          <Text>R$ 199,90</Text>
-        </View>
+          <ProductTotal>
+            <ProductTotalText>Total</ProductTotalText>
+            <ProductTotalPrice>R$ 199,90</ProductTotalPrice>
+          </ProductTotal>
 
-        <View>
-          <Text>Total</Text>
-          <Text>R$ 199,90</Text>
-        </View>
-
-        <TouchableOpacity>
-          <Text>Finalizar Pedido</Text>
-        </TouchableOpacity>
-      </View>
+          <ProductEndOrder>
+            <ProductEndOrderText>Finalizar Pedido</ProductEndOrderText>
+          </ProductEndOrder>
+        </ProductContainer>
+      </ScrollView>
     </View>
   );
-};
+}
 
 export default Cart;

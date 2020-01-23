@@ -1,8 +1,6 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator, HeaderBackButton } from 'react-navigation-stack';
 import React from 'react';
-import { Image } from 'react-native';
-import logo from './assets/images/logo.png';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import HomeScreen from './pages/Home/index';
 import CartScreen from './pages/Cart/index';
@@ -15,9 +13,12 @@ const Routes = createAppContainer(
       Cart: CartScreen,
     },
     {
-      initialRouteName: 'Cart',
+      // initialRouteName: 'Cart',
       defaultNavigationOptions: navigation => ({
         header: () => <Header {...navigation} />,
+        cardStyle: {
+          backgroundColor: '#000',
+        },
       }),
     }
   )

@@ -3,7 +3,7 @@ Configurando rotas x
 Estilos globais x
 Criando Header x
 Estilização da Home x
-Estilização do Carrinho
+Estilização do Carrinho x
 Configurando API
 Buscando produtos da API
 Configurando o Redux

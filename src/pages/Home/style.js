@@ -1,10 +1,6 @@
 import styled from 'styled-components/native';
 import { darken } from 'polished';
 
-export const Body = styled.View`
-  background-color: #000;
-  flex: 1;
-`;
 export const ProductContainer = styled.View`
   background-color: #fff;
   padding: 10px;

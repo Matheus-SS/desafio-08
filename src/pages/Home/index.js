@@ -1,8 +1,9 @@
+/* eslint-disable react/state-in-constructor */
 import React from 'react';
 import { View, Text, Image, FlatList, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import api from '../../services/api';
 import {
-  Body,
   ProductImage,
   ProductContainer,
   ProductName,
@@ -46,9 +47,15 @@ const product = [
     price: '189,90',
   },
 ];
-const Home = () => {
-  return (
-    <Body style={{ backgroundColor: '#000', flex: 1 }}>
+
+class Home extends React.Component {
+  async componentDidMount() {
+    const response = await api.get('/stock');
+    console.tron.log(response.data[0]);
+  }
+
+  render() {
+    return (
       <View>
         <FlatList
           horizontal
@@ -73,8 +80,8 @@ const Home = () => {
           )}
         />
       </View>
-    </Body>
-  );
-};
+    );
+  }
+}
 
 export default Home;
