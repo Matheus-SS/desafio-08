@@ -4,8 +4,8 @@ Estilos globais x
 Criando Header x
 Estilização da Home x
 Estilização do Carrinho x
-Configurando API
-Buscando produtos da API
+Configurando API x
+Buscando produtos da API x
 Configurando o Redux
 Adicionando ao carrinho
 Reactotron + Redux

@@ -13,59 +13,35 @@ import {
   ProductAddButtonAmountText,
   ProductAddButtonText,
 } from './style';
-import tenis from '../../assets/images/tenis.jpg';
-
-const product = [
-  {
-    id: '1',
-    image: tenis,
-    name: 'Tenis de Caminhada Leve Confortavel',
-    price: '189,90',
-  },
-  {
-    id: '2',
-    image: tenis,
-    name: 'Tenis de Caminhada Leve Confortavel',
-    price: '189,90',
-  },
-  {
-    id: '3',
-    image: tenis,
-    name: 'Tenis de Caminhada Leve Confortavel',
-    price: '189,90',
-  },
-  {
-    id: '4',
-    image: tenis,
-    name: 'Tenis de Caminhada Leve Confortavel',
-    price: '189,90',
-  },
-  {
-    id: '5',
-    image: tenis,
-    name: 'Tenis de Caminhada Leve Confortavel',
-    price: '189,90',
-  },
-];
 
 class Home extends React.Component {
+  state = {
+    products: [],
+  };
+
   async componentDidMount() {
-    const response = await api.get('/stock');
-    console.tron.log(response.data[0]);
+    const response = await api.get('products');
+    const { data } = response;
+
+    this.setState({
+      products: data,
+    });
   }
 
   render() {
+    const { products } = this.state;
     return (
       <View>
         <FlatList
           horizontal
-          data={product}
-          keyExtractor={item => item.id}
+          data={products}
+          extraData={this.props}
+          keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
-            <ProductContainer>
-              <ProductImage source={item.image} resizeMode="cover" />
-              <ProductName>{item.name}</ProductName>
-              <ProductPrice>R$ {item.price}</ProductPrice>
+            <ProductContainer key={item.id}>
+              <ProductImage source={{ uri: item.image }} resizeMode="cover" />
+              <ProductName>{item.title}</ProductName>
+              <ProductPrice>{item.price}</ProductPrice>
 
               <ProductAddButton>
                 <ProductAddButtonAmount
