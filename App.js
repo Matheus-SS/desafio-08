@@ -1,8 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from './src/store';
 import './src/config/reactotronConfig';
+
 import Routes from './src/routes';
+
+import store from './src/store';
 
 const App = () => {
   return (

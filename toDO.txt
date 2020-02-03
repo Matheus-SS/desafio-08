@@ -6,20 +6,20 @@ Estilização da Home x
 Estilização do Carrinho x
 Configurando API x
 Buscando produtos da API x
-Configurando o Redux
-Adicionando ao carrinho
-Reactotron + Redux
-Listando no carrinho
-Produto duplicado
-Remover produto
-Refatorando as actions
-Alterando quantidade
-Calculando totais
-Exibindo quantidades
-Configurando Redux Saga
-Reactotron + Saga
-Separando actions
-Estoque na adição
+Configurando o Redux x
+Adicionando ao carrinho x
+Reactotron + Redux  x
+Listando no carrinho x
+Produto duplicado x
+Remover produto x
+Refatorando as actions x
+Alterando quantidade x
+Calculando totais x
+Exibindo quantidades x
+Configurando Redux Saga x
+Reactotron + Saga x
+Separando actions x
+Estoque na adição x
 React Toastify
 Estoque na alteração
 Navegando no Saga

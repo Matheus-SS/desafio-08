@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {
@@ -9,7 +10,7 @@ import {
   ShoppingBasketAmount,
 } from './style';
 
-function Header({ navigation }) {
+function Header({ navigation, cartSize }) {
   return (
     <Wrapper>
       <Container>
@@ -19,11 +20,14 @@ function Header({ navigation }) {
 
         <ShoppingBasketContainer onPress={() => navigation.navigate('Cart')}>
           <Icon name="basket" size={35} color="#FFF" />
-          <ShoppingBasketAmount>55</ShoppingBasketAmount>
+          <ShoppingBasketAmount>{cartSize}</ShoppingBasketAmount>
         </ShoppingBasketContainer>
       </Container>
     </Wrapper>
   );
 }
 
-export default Header;
+export default connect(state => ({
+  // It returns the current state from reducer cart
+  cartSize: state.cart.length,
+}))(Header);

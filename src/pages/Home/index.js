@@ -1,10 +1,14 @@
 /* eslint-disable react/state-in-constructor */
 import React from 'react';
 import { View, Text, Image, FlatList, Button } from 'react-native';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { formatPrice } from '../../util/format';
 import 'numeral/locales/pt-br';
 import api from '../../services/api';
+
+import * as CartActions from '../../store/modules/cart/actions';
 import {
   ProductImage,
   ProductContainer,
@@ -33,8 +37,16 @@ class Home extends React.Component {
     });
   }
 
+  handleAddProduct = id => {
+    const { addToCartRequest } = this.props;
+
+    addToCartRequest(id);
+  };
+
   render() {
     const { products } = this.state;
+    const { amount } = this.props;
+
     return (
       <View>
         <FlatList
@@ -48,12 +60,14 @@ class Home extends React.Component {
               <ProductName>{item.title}</ProductName>
               <ProductPrice>{item.priceFormatted}</ProductPrice>
 
-              <ProductAddButton>
+              <ProductAddButton onPress={() => this.handleAddProduct(item.id)}>
                 <ProductAddButtonAmount
                   style={{ flexDirection: 'row', alignItems: 'center' }}
                 >
                   <Icon name="add-shopping-cart" size={20} color="#fff" />
-                  <ProductAddButtonAmountText>33</ProductAddButtonAmountText>
+                  <ProductAddButtonAmountText>
+                    {amount[item.id] || 0}
+                  </ProductAddButtonAmountText>
                 </ProductAddButtonAmount>
                 <ProductAddButtonText>ADICIONAR</ProductAddButtonText>
               </ProductAddButton>
@@ -65,4 +79,14 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  amount: state.cart.reduce((amount, product) => {
+    amount[product.id] = product.amount;
+
+    return amount;
+  }, {}),
+});
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

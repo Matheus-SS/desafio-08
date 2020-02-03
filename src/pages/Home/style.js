@@ -25,7 +25,9 @@ export const ProductPrice = styled.Text`
   font-weight: bold;
 `;
 
-export const ProductAddButton = styled.TouchableOpacity`
+export const ProductAddButton = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.8,
+})`
   margin-top: auto;
   flex-wrap: wrap;
   flex-direction: row;
