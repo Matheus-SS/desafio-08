@@ -104,3 +104,16 @@ export const ProductEndOrderText = styled.Text`
   font-size: 18px;
   text-transform: uppercase;
 `;
+
+export const EmptyCartView = styled.View`
+  background-color: #fff;
+  align-items: center;
+  margin: 10px;
+  border-radius: 5px;
+`;
+
+export const EmptyCartText = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+`;

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import NavigationService from './src/services/NavigationService';
+
 import './src/config/reactotronConfig';
 
 import Routes from './src/routes';
@@ -10,7 +12,11 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <Routes />
+        <Routes
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }}
+        />
       </Provider>
     </>
   );

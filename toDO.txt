@@ -20,6 +20,5 @@ Configurando Redux Saga x
 Reactotron + Saga x
 Separando actions x
 Estoque na adição x
-React Toastify
 Estoque na alteração
 Navegando no Saga

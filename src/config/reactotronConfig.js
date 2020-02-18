@@ -4,7 +4,7 @@ import reactotronSaga from 'reactotron-redux-saga';
 
 if (__DEV__) {
   // Check if it's development mode
-  const tron = Reactotron.configure({ host: '192.168.1.2' })
+  const tron = Reactotron.configure({ host: '192.168.1.5' })
     .useReactNative() // Appling React-Native plugin
     .use(reactotronRedux()) // Applying Redux plugin
     .use(reactotronSaga()) // Applying Saga plugin
